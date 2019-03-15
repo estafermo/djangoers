@@ -1,0 +1,17 @@
+{% if latest_question_list %}
+    <ul>
+    {% for post in latest_question_list %}
+        <li><h1>{{ post.title }}</h1>
+                <p>{{post.text}}</p>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts are available.</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <input id="searchtext" type="text" name="searchtext" value="">
+    <input type="submit" value="OK">
+</form>
